@@ -1,0 +1,31 @@
+h1{
+    font-weight: bold;
+    margin:15px;
+    text-align: center;
+}
+
+.rt{
+    border-left:1px gray solid;
+}
+
+#matrixCode{
+    background-color:gray;
+    min-height: 200px;
+    margin-top:15px;
+    color:white;
+    display: block;
+    padding: 15px;
+}
+
+.pallete-colors{
+    margin-top:5px;
+    width:25px;
+    height:25px;
+    border:1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn.btn-outline-primary{
+    margin-top:5px;
+}
