@@ -18,14 +18,29 @@ h1{
 }
 
 .pallete-colors{
-    margin-top:5px;
-    width:25px;
-    height:25px;
-    border:1px solid black;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     cursor: pointer;
+    color:white;
+}
+
+.pallete-colors:first-of-type{
+    border: 1px solid #dedddd;
+    color:black;
 }
 
 .btn.btn-outline-primary{
     margin-top:5px;
+}
+
+.active-color{
+    box-shadow: 2px 2px 2px #4a4646;
+}
+
+
+#credits{
+    margin-top:25px;
+    text-align: center;
 }

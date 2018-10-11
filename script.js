@@ -1,6 +1,6 @@
 let matrix = fillZeroMatrix(5,5); 
 let side = 22;
-let palette = ["#FDFEFE","#52BE80","#F4D03F","#E74C3C","#273746","#7D3C98"];
+let palette = ["#FDFEFE","#52BE80","#F4D03F","#E74C3C","#3498DB","#7D3C98","#273746"];
 let choosenColorIndex = 1;
 
 
@@ -8,11 +8,20 @@ $("#matrixCode").html(printMatrixText(matrix))
 
 let palet ="";
 for(var i in palette){
-    palet+="<div class='pallete-colors' style='background-color:"+palette[i]+"'>"+ i +"</div>"
+    let active = (choosenColorIndex==i)?"active-color":"";
+    palet+="<div class='pallete-colors "+active+"' style='background-color:"+palette[i]+"'>"+ i +"</div>"
 }
 $("#palette").html(palet)
 $(".pallete-colors").click(function(){
     choosenColorIndex = $(this).text();
+    $(".pallete-colors").removeClass("active-color")
+    $(this).addClass("active-color");
+})
+
+
+$(".matrixDims").click(function(){
+    $(".matrixDims").removeClass("active")
+    $(this).addClass("active");
 })
 
 
