@@ -1,10 +1,9 @@
-let matrix = []; 
-let side = 20;
+let matrix = fillZeroMatrix(5,5); 
+let side = 22;
 let palette = ["#FDFEFE","#52BE80","#F4D03F","#E74C3C","#273746","#7D3C98"];
-let choosenColor = palette[0];
+let choosenColorIndex = 1;
 
 
-matrix  = fillZeroMatrix(5,5)
 $("#matrixCode").html(printMatrixText(matrix))
 
 let palet ="";
@@ -13,8 +12,7 @@ for(var i in palette){
 }
 $("#palette").html(palet)
 $(".pallete-colors").click(function(){
-    choosenColor = $(this).css("background-color");
-    console.log(choosenColor);
+    choosenColorIndex = $(this).text();
 })
 
 
@@ -33,13 +31,35 @@ function setup(){
 
 function draw(){
     background("#ececec")
+    if(mouseIsPressed){
+        drawPixels()
+    }
+
     for(let y=0; y<matrix.length; y++){
         for(let x=0; x<matrix[y].length; x++){
-            rect(side*x, side*y, side, side) 
+            fill(palette[matrix[y][x]])
+            rect(side*x, side*y, side, side)
         }   
     }
+
+    $("#matrixCode").html(printMatrixText(matrix))
 }
 
+
+$("#matrixCode").mouseenter(function(){
+    noLoop()
+}).mouseleave(function(){
+    loop()
+});
+
+
+
+function drawPixels(){
+    let point = indexesByCoordinates(mouseX,mouseY,side)
+    if(isInMatrix(point.x, point.y)){
+        matrix[point.y][point.x] = parseInt(choosenColorIndex)
+    }
+}
 
 
 function fillZeroMatrix(row,column){
@@ -76,3 +96,41 @@ function printMatrixText(matrix) {
     return text;
   
   }
+
+
+function indexesByCoordinates(x,y,side){
+    let indexes = {
+        x:0,
+        y:0
+    }
+    
+    indexes.x = Math.floor(x/side)
+    indexes.y = Math.floor(y/side)
+
+    return indexes;
+}
+
+function isInMatrix(x,y){
+    return x>=0 && y>=0 && y<matrix.length && x<matrix[0].length
+}
+
+
+$.cssHooks.backgroundColor = {
+    get: function(elem) {
+        if (elem.currentStyle)
+            var bg = elem.currentStyle["backgroundColor"];
+        else if (window.getComputedStyle) {
+            var bg = document.defaultView.getComputedStyle(elem,
+                null).getPropertyValue("background-color");
+        }
+        if (bg.search("rgb") == -1) {
+            return bg;
+        } else {
+            bg = bg.match(/\d+/g);
+            function hex(x) {
+                return ("0" + parseInt(x).toString(16)).slice(-2);
+            }
+            return "#" + hex(bg[0]) + hex(bg[1]) + hex(bg[2]);
+        }
+    }
+}
