@@ -32,8 +32,16 @@ $(".matrixDims").click(function(){
 })
 
 
+$(".specials").click(function(){
+    let specialMatrixName = ($(this).attr("src").split("/")[1]).split(".")[0]
+    matrix = specials[specialMatrixName]
+    $(".specials").removeClass("specials-active")
+    $(this).addClass("specials-active")
+    //console.log(specialMatrixName)
+})
+
 function setup(){
-    let canvas = createCanvas(900,500)
+    let canvas = createCanvas(450,500)
     canvas.parent('sketch-holder')
     background("#ececec")
 }

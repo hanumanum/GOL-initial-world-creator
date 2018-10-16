@@ -10,17 +10,34 @@
       <div class="container">
       <h1>"Game Of Life" Initial World Creator</h1>
       <div class="row">
-        <div class="col lg-8">
+        <div class="col col-sm-5">
             <div id="sketch-holder"></div>
         </div>
-        <div class="col lg-4 rt">
-            <div id="palette"></div>
+        <div class="col col-sm-1 rt">
+            <b>Type</b>
             <hr>
-            <button type="button" class="btn btn-outline-primary matrixDims">3x3</button><br>
-            <button type="button" class="btn btn-outline-primary matrixDims">4x4</button><br>
-            <button type="button" class="btn btn-outline-primary matrixDims active">5x5</button><br>
-            <button type="button" class="btn btn-outline-primary matrixDims">10x10</button><br>
-            <button type="button" class="btn btn-outline-primary matrixDims">20x20</button><br>
+            <div id="palette"></div>
+        </div>
+        <div class="col col-sm-2 rt">
+          <b>Dim</b>
+            <hr>
+  
+          <button type="button" class="btn btn-outline-primary matrixDims">3x3</button><br>
+          <button type="button" class="btn btn-outline-primary matrixDims">4x4</button><br>
+          <button type="button" class="btn btn-outline-primary matrixDims active">5x5</button><br>
+          <button type="button" class="btn btn-outline-primary matrixDims">10x10</button><br>
+          <button type="button" class="btn btn-outline-primary matrixDims">20x20</button><br>
+        </div>
+        <div class="col col-sm-4">
+          <b>Specials</b>
+          <hr>
+            <img src="images/sp1_only1.png" class="specials">
+            <img src="images/sp2_only2.png" class="specials">
+            <img src="images/sp3_1and2.png" class="specials">
+            <img src="images/sp4_only3.png" class="specials">
+            <img src="images/sp5_1and3.png" class="specials">
+            <img src="images/sp6_2and3.png" class="specials">
+            <img src="images/sp7_2and3_more.png" class="specials">
         </div>
       </div>
       <div class="row" id="matrixCode">
@@ -32,6 +49,7 @@
         </div>
       </div>
     </div>
+      <script src="specials.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js" integrity="sha256-Hu8qm4q26AVXOWGlyZqO04hF+8WlulgTj51vr0FgNG8=" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

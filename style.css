@@ -5,7 +5,7 @@ h1{
 }
 
 .rt{
-    border-left:1px gray solid;
+    /* border-left:1px gray solid; */
 }
 
 #matrixCode{
@@ -43,4 +43,16 @@ h1{
 #credits{
     margin-top:25px;
     text-align: center;
+}
+
+.specials{
+    box-shadow: 2px 2px 2px grey;
+    margin:0px 5px 8px 0px;
+    height: 90px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.specials:hover, .specials-active{
+    opacity: 1;
 }
